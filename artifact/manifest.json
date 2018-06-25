@@ -9,7 +9,7 @@
     "128": "icons/icon.png"
   },
   "content_scripts": [{
-    "matches": ["https://www.yahoo.co.jp/"],
+    "matches": ["https://github.com/toku345/url2slack_cljs"],
     "js": ["js/url2slack_cljs.js"]
   }]
 }
