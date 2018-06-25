@@ -36,4 +36,4 @@ get live reloading, nor a REPL.
 
 Copyright © 2018 toku345
 
-Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
+Distributed under the Eclipse Public License 2.0.
