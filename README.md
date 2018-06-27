@@ -32,6 +32,19 @@ To create a production build run:
 And open your browser in `resources/public/index.html`. You will not
 get live reloading, nor a REPL.
 
+## Test
+
+    npm install -g karma-cli
+    npm install
+
+Run test.
+
+    lein doo chrome-headless test
+
+Run test once.
+
+    lein doo chrome-headless test once
+
 ## License
 
 Copyright © 2018 toku345

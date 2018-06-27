@@ -13,7 +13,8 @@
                  [org.clojure/core.async  "0.4.474"]]
 
   :plugins [[lein-figwheel "0.5.16"]
-            [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]]
+            [lein-cljsbuild "1.1.7" :exclusions [[org.clojure/clojure]]]
+            [lein-doo "0.1.10"]]
 
   :source-paths ["src"]
 
@@ -39,12 +40,23 @@
                            ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
                            ;; https://github.com/binaryage/cljs-devtools
                            :preloads [devtools.preload]}}
+               {:id "test"
+                :source-paths ["src" "test"]
+                :compiler {:output-to "resources/public/js/compiled/test.js"
+                           :output-dir "resources/public/js/compiled/test"
+                           :main url2slack_cljs.runner
+                           :optimizations :none
+                           :npm-deps {:karma "^2.0.4"
+                                      :karma-chrome-launcher "^2.2.0"
+                                      :karma-cljs-test "^0.1.0"}
+                           :install-deps true}}
                ;; This next build is a compressed minified build for
                ;; production. You can build this with:
                ;; lein cljsbuild once min
                {:id "packing"
                 :source-paths ["src"]
                 :compiler {:output-to "artifact/js/url2slack_cljs.js"
+                           :output-dir "artifact/js/compiled/out"
                            :main url2slack_cljs.core
                            :optimizations :advanced
                            :pretty-print false}}]}
